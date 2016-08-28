@@ -1,4 +1,12 @@
 {
   "name": "eventkit-mobile",
-  "app_id": ""
+  "app_id": "1f876c38",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
