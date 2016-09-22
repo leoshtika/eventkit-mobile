@@ -1,0 +1,9 @@
+<ion-view view-title="Speakers">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="speaker in speakers" href="#/app/speakers/{{speaker.id}}">
+                {{speaker.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
