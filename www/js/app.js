@@ -48,7 +48,7 @@ eventkitApp.run(function ($ionicPlatform) {
         })
 
         .state('app.speaker', {
-            url: '/speakers/:speakerId',
+            url: '/speakers/:id',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/speaker.html',

@@ -1,4 +1,4 @@
-eventkitApp.controller('SpeakersController', function ($scope) {
+eventkitApp.controller('SpeakersController', function ($scope, $state) {
     $scope.speakers = [
         {name: 'Leonard Shtika', id: 1},
         {name: 'John Smith', id: 2},
@@ -7,4 +7,7 @@ eventkitApp.controller('SpeakersController', function ($scope) {
         {name: 'Kate Benigno', id: 5},
         {name: 'Eulalia Reddin', id: 6}
     ];
+    
+    // For one speaker info page
+    $scope.speakerId = $state.params.id;
 });
