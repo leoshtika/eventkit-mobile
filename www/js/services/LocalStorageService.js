@@ -1,4 +1,4 @@
-reportApp.service('LocalStorageService', function(){
+eventkitApp.service('LocalStorageService', function(){
     
     /**
      * Get the local storage if it's supported by the browser
