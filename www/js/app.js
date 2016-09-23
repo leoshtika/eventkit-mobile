@@ -1,6 +1,9 @@
 // eventkitApp is the main application module
 
-var eventkitApp = angular.module('eventkitApp', ['ionic']);
+var eventkitApp = angular.module('eventkitApp', ['ionic'])
+    .constant('CONST', {
+        urlAPI: 'http://localhost:4000/api/'
+    });
 
 eventkitApp.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

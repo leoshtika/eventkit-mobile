@@ -23,3 +23,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.icon_popup_template {
+    font-size:38px;
+    float:left; 
+    padding-right:6px;
+}

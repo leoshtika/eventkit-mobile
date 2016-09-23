@@ -9814,3 +9814,8 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.icon_popup_template {
+  font-size: 38px;
+  float: left;
+  padding-right: 6px; }
