@@ -14,12 +14,11 @@
 
     <ion-side-menu side="left">
         <ion-header-bar class="bar-stable">
-            <h1 class="title" ng-if="!userParams.isLoggedIn">Guest</h1>
-            <h1 class="title" ng-if="userParams.isLoggedIn">{{userAccount.full_name}}</h1>
+            <h1 class="title" ng-show="userParams.isLoggedIn">{{userAccount.full_name}}</h1>
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item menu-close ng-click="openLoginModal()">
+                <ion-item menu-close ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
                     Login
                 </ion-item>
                 <ion-item menu-close href="#/app/event-info">
@@ -27,6 +26,9 @@
                 </ion-item>
                 <ion-item menu-close href="#/app/speakers">
                     Speakers
+                </ion-item>
+                <ion-item menu-close ng-click="logout()" ng-show="userParams.isLoggedIn">
+                    Logout
                 </ion-item>
             </ion-list>
         </ion-content>

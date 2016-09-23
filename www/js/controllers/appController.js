@@ -1,4 +1,4 @@
-eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoading, $ionicPopup, UserService, LocalStorageService) {
+eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoading, $ionicPopup, $ionicHistory, UserService, LocalStorageService) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -107,6 +107,25 @@ eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoa
             // hide loader
             $ionicLoading.hide();
         });
+    };
+    
+    
+    // Logout user and clean up
+    $scope.logout = function(){
+        
+        // Remove local storage items
+        LocalStorageService.removeItem(UserService.params);
+        
+        // Reset $scope variables
+        $scope.userAccount = null;
+        
+        // Reset params
+        UserService.params.isLoggedIn = false;
+
+        // @TODO:Truncate database table
+        
+        // Clear cache
+        $ionicHistory.clearCache();
     };
     
 });
