@@ -6,6 +6,35 @@ eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoa
     // listen for the $ionicView.enter event:
     //$scope.$on('$ionicView.enter', function(e) {
     //});
+    
+
+    // Get the values of all params
+    $scope.userParams = UserService.params;
+    
+    /**
+     * Download details for this user (number of reports, comments, likes ...)
+     */
+    var refreshProfile = function() {
+        if (UserService.params.isLoggedIn) {
+            UserService.getUserAccount().then(function (allItems) {
+                $scope.userAccount = allItems.data;
+            }, function (response) {
+                if (response.data === null) {
+                    $scope.userAccount = {
+//                        avatar_url: 'img/avatar-default.png',
+                        full_name: LocalStorageService.getLSValue(UserService.params, 'fullName')
+                    };
+                }
+            });
+        }
+    };
+    
+   // This event runs everytime the view has finished loading
+    $scope.$on('$ionicView.afterEnter', function(e) {
+        if (UserService.params.isLoggedIn && $scope.userAccount === undefined) {
+            refreshProfile();
+        }
+    });
 
     // Form data for the login modal
     $scope.loginData = {};
@@ -50,6 +79,9 @@ eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoa
                 template: '<i class="icon ion-ios-information balanced icon_popup_template"></i>' +
                         'Congratulation! You have successfully logged in.'
             });
+            
+            // Download details for this user
+            refreshProfile();
             
             $scope.closeLoginModal();
             
