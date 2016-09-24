@@ -23,16 +23,32 @@
                     <h2>{{userAccount.full_name}}</h2>
                     <p>Member since: {{userAccount.created_at * 1000 | date:'MMM yyyy'}}</p>
                 </ion-item>
-                <ion-item menu-close ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
+                <ion-item menu-close class="item-icon-left" ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
+                    <i class="icon ion-ios-redo-outline balanced"></i>
                     Login
                 </ion-item>
-                <ion-item menu-close href="#/app/event-info">
+                <ion-item menu-close class="item-icon-left" href="#/app/event-info">
+                    <i class="icon ion-ios-information-outline"></i>
                     Event info
                 </ion-item>
-                <ion-item menu-close href="#/app/speakers">
+                <ion-item menu-close class="item-icon-left" href="#/app/speakers">
+                    <i class="icon ion-ios-people-outline"></i>
                     Speakers
                 </ion-item>
-                <ion-item menu-close ng-click="logout()" ng-show="userParams.isLoggedIn">
+                <ion-item menu-close class="item-icon-left" href="#/app/sessions">
+                    <i class="icon ion-ios-albums-outline"></i>
+                    Sessions
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" href="#/app/questions">
+                    <i class="icon ion-ios-chatbubble-outline"></i>
+                    Questions
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" href="#/app/my-schedule" ng-show="userParams.isLoggedIn">
+                    <i class="icon ion-ios-paper-outline"></i>
+                    My schedule
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" ng-click="logout()" ng-show="userParams.isLoggedIn">
+                    <i class="icon ion-ios-undo-outline assertive"></i>
                     Logout
                 </ion-item>
             </ion-list>
