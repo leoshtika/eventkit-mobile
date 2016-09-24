@@ -15,7 +15,8 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-$positive:                        #4EA6BF !default;
+$calm:                          #7d65a3 !default;   // purple
+$balanced:                      #5CB85C !default;   // green
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -23,8 +24,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+/* -- Popup template ----------------------- */
 .icon_popup_template {
     font-size:38px;
     float:left; 
     padding-right:6px;
 }
+.popup-buttons button {
+    background-color: $calm !important;
+}
+/* ----------------------- Popup template -- */
