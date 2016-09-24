@@ -1,6 +1,6 @@
 {
   "name": "eventkit-mobile",
-  "app_id": "",
+  "app_id": "f6ceed24",
   "gulpStartupTasks": [
     "sass",
     "watch"
