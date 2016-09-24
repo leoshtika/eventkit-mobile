@@ -5,7 +5,13 @@ var eventkitApp = angular.module('eventkitApp', ['ionic'])
         urlAPI: 'http://localhost:4000/api/'
     });
 
-eventkitApp.run(function ($ionicPlatform) {
+eventkitApp.run(function ($ionicPlatform, UserService) {
+    
+    // Check if user is logged in and set the isLoggedIn params to true
+    if(UserService.checkIfUserIsLoggedIn()){
+        UserService.params.isLoggedIn = true;
+    }
+    
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
