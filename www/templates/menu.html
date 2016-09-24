@@ -19,7 +19,7 @@
         <ion-content>
             <ion-list>
                 <ion-item class="item-avatar stable-bg" ng-if="userParams.isLoggedIn">
-                    <img src="{{userAccount.avatar_url}}" alt="">
+                    <img src="{{userAccount.avatar_url}}" alt="" err-src="img/avatar.png">
                     <h2>{{userAccount.full_name}}</h2>
                     <p>Member since: {{userAccount.created_at * 1000 | date:'MMM yyyy'}}</p>
                 </ion-item>
