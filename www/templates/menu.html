@@ -14,10 +14,15 @@
 
     <ion-side-menu side="left">
         <ion-header-bar class="bar-stable">
-            <h1 class="title" ng-show="userParams.isLoggedIn">{{userAccount.full_name}}</h1>
+            <h1 class="title">EventKit</h1>
         </ion-header-bar>
         <ion-content>
             <ion-list>
+                <ion-item class="item-avatar stable-bg" ng-if="userParams.isLoggedIn">
+                    <img src="{{userAccount.avatar_url}}" alt="">
+                    <h2>{{userAccount.full_name}}</h2>
+                    <p>Member since: {{userAccount.created_at * 1000 | date:'MMM yyyy'}}</p>
+                </ion-item>
                 <ion-item menu-close ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
                     Login
                 </ion-item>
