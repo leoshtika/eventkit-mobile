@@ -2,7 +2,7 @@
     <ion-content>
         <div ng-repeat="speaker in speakers | filter:{id:speakerId}" class="padding">
             <div class="text-center">
-                <img ng-src="{{getImage(speaker)}}" class="img_speaker">
+                <img class="img_speaker" alt="" ng-src="{{getImage(speaker)}}" err-src="img/avatar.png">
                 <h2>{{speaker.full_name}}</h2>
             </div>
             <p>{{speaker.resume}}</p>

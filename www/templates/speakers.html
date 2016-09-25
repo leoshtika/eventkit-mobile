@@ -13,7 +13,7 @@
             <ion-item class="item-avatar item-icon-right"
                 ng-repeat="speaker in speakers | filter:query" 
                 ng-href="#/app/speakers/{{speaker.id}}">
-                <img ng-src="{{getImage(speaker)}}">
+                <img alt="" ng-src="{{getImage(speaker)}}" err-src="img/avatar.png">
                 <h2>{{speaker.full_name}}</h2>
                 <p>{{speaker.resume}}</p>
                 <i class="icon ion-ios-arrow-right"></i>

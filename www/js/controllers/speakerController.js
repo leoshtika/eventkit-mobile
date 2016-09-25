@@ -21,6 +21,9 @@ eventkitApp.controller('speakerController', function ($scope, $state, SpeakerSer
         return CONST.urlFiles + 'speakers/' + speaker.id + '.png';
     };
     
+    /**
+     * Reset search filter
+     */
     $scope.resetSearch = function(){
         $scope.query = '';
     };
