@@ -9,6 +9,10 @@
            ng-if="query"></i>
     </div>
     <ion-content class="has-subheader">
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
         <ion-list>
             <ion-item class="item-avatar item-icon-right"
                 ng-repeat="speaker in speakers | filter:query" 

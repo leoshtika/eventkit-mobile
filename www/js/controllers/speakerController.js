@@ -2,13 +2,15 @@ eventkitApp.controller('speakerController', function ($scope, $state, SpeakerSer
     
     $scope.speakers = SpeakerService.data.speakers;
     
+    // For one speaker info page
+    $scope.speakerId = $state.params.id;
+    
     /**
-     * Get all reports from local DB (SQLite) and copy to the list
-     * @returns {undefined}
+     * Get all speakers from API and copy to the list
      */
     var updateSpeakerList = function() {
     
-        // Download from the API only once
+        // The following flag makes sure that the data from the API is downloaded only once
         if (SpeakerService.data.downloadFlag) {
             SpeakerService.downloadSpeakers().then(function(response) {
                 SpeakerService.data.speakers = angular.copy(response.data);
@@ -17,13 +19,22 @@ eventkitApp.controller('speakerController', function ($scope, $state, SpeakerSer
             }, function(err) {
                 console.log('Error downloading speakers from API: ');
                 console.log(err.message);
+            })
+            .finally(function(){
+                // Stop the ion-refresher from spinning
+                $scope.$broadcast('scroll.refreshComplete');
             });
         }
     };
     
-    // For one speaker info page
-    $scope.speakerId = $state.params.id;
-
+    /**
+     * Download data again from the API
+     */
+    $scope.doRefresh = function () {
+        SpeakerService.data.downloadFlag = true;
+        updateSpeakerList();
+    };
+    
     /**
      * Returns the image url based on the speaker id
      * @param {Obj} speaker
