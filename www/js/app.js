@@ -2,8 +2,10 @@
 
 var eventkitApp = angular.module('eventkitApp', ['ionic'])
     .constant('CONST', {
-        urlAPI: 'http://localhost:4000/api/',
-        urlFiles: 'http://localhost:4000/files4users/'
+//        urlAPI: 'http://localhost:4000/api/',
+//        urlFiles: 'http://localhost:4000/files4users/'
+        urlAPI: 'http://192.168.1.100:4000/api/',
+        urlFiles: 'http://192.168.1.100:4000/files4users/'
     });
 
 eventkitApp.run(function ($ionicPlatform, UserService) {

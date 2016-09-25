@@ -1,14 +1,26 @@
 eventkitApp.controller('speakerController', function ($scope, $state, SpeakerService, CONST) {
     
-    $scope.speakers = [];
-    console.log($scope.speakers);
-
-    // @TODO: Run only from speakers.html not speaker.
-    SpeakerService.getSpeakers().then(function (response) {
-        $scope.speakers = response.data;
-        console.log($scope.speakers);
-    });
-
+    $scope.speakers = SpeakerService.data.speakers;
+    
+    /**
+     * Get all reports from local DB (SQLite) and copy to the list
+     * @returns {undefined}
+     */
+    var updateSpeakerList = function() {
+    
+        // Download from the API only once
+        if (SpeakerService.data.downloadFlag) {
+            SpeakerService.downloadSpeakers().then(function(response) {
+                SpeakerService.data.speakers = angular.copy(response.data);
+                $scope.speakers = SpeakerService.data.speakers;
+                SpeakerService.data.downloadFlag = false;
+            }, function(err) {
+                console.log('Error downloading speakers from API: ');
+                console.log(err.message);
+            });
+        }
+    };
+    
     // For one speaker info page
     $scope.speakerId = $state.params.id;
 
@@ -27,4 +39,8 @@ eventkitApp.controller('speakerController', function ($scope, $state, SpeakerSer
     $scope.resetSearch = function(){
         $scope.query = '';
     };
+
+
+    // Load only the first time, because the cache on the view is 'on'
+    updateSpeakerList();
 });
