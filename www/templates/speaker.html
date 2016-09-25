@@ -1,7 +1,7 @@
 <ion-view view-title="Speaker">
     <ion-content>
         <div ng-repeat="speaker in speakers | filter:{id:speakerId}">
-            <h1>{{speaker.name}}</h1>
+            <h2>{{speaker.full_name}}</h2>
         </div>
     </ion-content>
 </ion-view>

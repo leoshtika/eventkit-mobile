@@ -51,7 +51,7 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
             views: {
                 'menuContent': {
                     templateUrl: 'templates/speakers.html',
-                    controller: 'SpeakersController'
+                    controller: 'speakerController'
                 }
             }
         })
@@ -61,7 +61,7 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
             views: {
                 'menuContent': {
                     templateUrl: 'templates/speaker.html',
-                    controller: 'SpeakersController'
+                    controller: 'speakerController'
                 }
             }
         });
