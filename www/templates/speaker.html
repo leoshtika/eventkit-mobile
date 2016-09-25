@@ -1,7 +1,17 @@
 <ion-view view-title="Speaker">
     <ion-content>
-        <div ng-repeat="speaker in speakers | filter:{id:speakerId}">
-            <h2>{{speaker.full_name}}</h2>
+        <div ng-repeat="speaker in speakers | filter:{id:speakerId}" class="padding">
+            <div class="text-center">
+                <img ng-src="{{getImage(speaker)}}" class="img_speaker">
+                <h2>{{speaker.full_name}}</h2>
+            </div>
+            <p>{{speaker.resume}}</p>
         </div>
     </ion-content>
+    <ion-footer-bar class="icon-right stable-bg">
+        <a class="button button-icon icon ion-social-facebook-outline calm"></a>
+        <a class="button button-icon icon ion-social-twitter-outline calm"></a>
+        <a class="button button-icon icon ion-social-github-outline calm"></a>
+        <div class="title"></div>
+    </ion-footer-bar>
 </ion-view>

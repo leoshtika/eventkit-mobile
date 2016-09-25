@@ -10,12 +10,13 @@
     </div>
     <ion-content class="has-subheader">
         <ion-list>
-            <ion-item class="item-avatar"
+            <ion-item class="item-avatar item-icon-right"
                 ng-repeat="speaker in speakers | filter:query" 
                 ng-href="#/app/speakers/{{speaker.id}}">
                 <img ng-src="{{getImage(speaker)}}">
                 <h2>{{speaker.full_name}}</h2>
                 <p>{{speaker.resume}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
         </ion-list>
     </ion-content>

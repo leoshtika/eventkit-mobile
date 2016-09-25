@@ -34,3 +34,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     background-color: $calm !important;
 }
 /* ----------------------- Popup template -- */
+
+.img_speaker {
+    border-radius:50%; 
+    width: 60%; 
+    height: auto; 
+    max-width: 280px;
+}

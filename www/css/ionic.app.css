@@ -9825,3 +9825,8 @@ a.button {
   background-color: #7d65a3 !important; }
 
 /* ----------------------- Popup template -- */
+.img_speaker {
+  border-radius: 50%;
+  width: 60%;
+  height: auto;
+  max-width: 280px; }
