@@ -20,4 +20,8 @@ eventkitApp.controller('speakerController', function ($scope, $state, SpeakerSer
     $scope.getImage = function (speaker) {
         return CONST.urlFiles + 'speakers/' + speaker.id + '.png';
     };
+    
+    $scope.resetSearch = function(){
+        $scope.query = '';
+    };
 });
