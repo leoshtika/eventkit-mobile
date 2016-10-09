@@ -1,0 +1,16 @@
+<ion-view view-title="Info">
+    <ion-content>
+        <div ng-repeat="session in sessions | filter:{id:sessionId}" class="padding">
+            <div class="text-center">
+                <h2>{{session.title}}</h2>
+            </div>
+            <p>{{session.description}}</p>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="icon-right stable-bg">
+        <a class="button button-icon icon ion-social-facebook-outline calm"></a>
+        <a class="button button-icon icon ion-social-twitter-outline calm"></a>
+        <a class="button button-icon icon ion-social-github-outline calm"></a>
+        <div class="title"></div>
+    </ion-footer-bar>
+</ion-view>

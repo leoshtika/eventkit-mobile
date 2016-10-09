@@ -1,0 +1,29 @@
+<ion-view view-title="Sessions">
+    <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="query">
+        </label>
+        <i class="button button-clear ion-close-circled" role="button" 
+           ng-click="resetSearch()"
+           ng-if="query"></i>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item class="item-thumbnail-left item-icon-right"
+                ng-repeat="session in sessions | filter:query" 
+                ng-href="#/app/sessions/{{session.id}}">
+                <img alt="" ng-src="{{getImage(session)}}" err-src="img/avatar.png">
+                <h2>{{session.title}}</h2>
+                <p>{{session.starts}}</p>
+                <p>{{session.ends}}</p>
+                <p>{{session.speaker}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
