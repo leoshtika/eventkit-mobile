@@ -17,11 +17,11 @@
             <ion-item class="item-thumbnail-left item-icon-right"
                 ng-repeat="session in sessions | filter:query" 
                 ng-href="#/app/sessions/{{session.id}}">
-                <img alt="" ng-src="{{getImage(session)}}" err-src="img/avatar.png">
+                <img alt="" ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png">
                 <h2>{{session.title}}</h2>
-                <p>{{session.starts}}</p>
-                <p>{{session.ends}}</p>
-                <p>{{session.speaker}}</p>
+                <p><strong>Starts:</strong> {{session.starts * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
+                <p><strong>Ends:</strong> {{session.ends * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
+                <p>{{session.speaker_name}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
         </ion-list>

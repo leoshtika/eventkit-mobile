@@ -37,11 +37,11 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
     
     /**
      * Returns the image url based on the session id
-     * @param {Obj} speaker
+     * @param {int} speakerId
      * @returns {String}
      */
-    $scope.getImage = function (speaker) {
-        return CONST.urlFiles + 'speakers/' + speaker.id + '.png';
+    $scope.getImage = function (speakerId) {
+        return CONST.urlFiles + 'speakers/' + speakerId + '.png';
     };
     
     /**

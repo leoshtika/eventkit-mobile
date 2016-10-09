@@ -4,7 +4,13 @@
             <div class="text-center">
                 <h2>{{session.title}}</h2>
             </div>
+            <p><strong>Starts:</strong> {{session.starts * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
+            <p><strong>Ends:</strong> {{session.ends * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
+            <p><strong>Speaker:</strong> {{session.speaker_name}}</p>
             <p>{{session.description}}</p>
+            <div class="text-center">
+                <img alt="" ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png">
+            </div>
         </div>
     </ion-content>
     <ion-footer-bar class="icon-right stable-bg">
