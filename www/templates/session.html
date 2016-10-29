@@ -1,15 +1,20 @@
-<ion-view view-title="Info">
+<ion-view view-title="Session">
     <ion-content>
-        <div ng-repeat="session in sessions | filter:{id:sessionId}" class="padding">
-            <div class="text-center">
-                <h2>{{session.title}}</h2>
+        <div class="list card" ng-repeat="session in sessions | filter:{id:sessionId}">
+            <div class="item item-avatar" style="background-color: #F8F8F8;">
+                <img ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png" alt="">
+                <h2>{{session.speaker_name}}</h2>
+                <p>
+                    {{session.starts * 1000 | date:'MMM dd, yyyy'}} 
+                    {{session.starts * 1000 | date:'HH:mm'}} - {{session.ends * 1000 | date:'HH:mm'}}
+                </p> 
             </div>
-            <p><strong>Starts:</strong> {{session.starts * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
-            <p><strong>Ends:</strong> {{session.ends * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
-            <p><strong>Speaker:</strong> {{session.speaker_name}}</p>
-            <p>{{session.description}}</p>
-            <div class="text-center">
-                <img alt="" ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png">
+            <div class="item item-body">
+                <h2>{{session.title}}</h2>
+                <p>{{session.description}}</p>
+                <p>
+                    <a ng-href="#/app/speakers/{{session.speaker_id}}" class="subdued">About speaker</a>
+                </p>
             </div>
         </div>
     </ion-content>
