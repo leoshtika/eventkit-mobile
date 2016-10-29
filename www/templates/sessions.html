@@ -14,15 +14,22 @@
             on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list>
-            <ion-item class="item-thumbnail-left item-icon-right"
+            <ion-item class="item-icon-right item-text-wrap"
                 ng-repeat="session in sessions | filter:query" 
                 ng-href="#/app/sessions/{{session.id}}">
-                <img alt="" ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png">
-                <h2>{{session.title}}</h2>
-                <p><strong>Starts:</strong> {{session.starts * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
-                <p><strong>Ends:</strong> {{session.ends * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
-                <p>{{session.speaker_name}}</p>
+                <div class="session_list_cal">
+                    <div class="month">{{session.starts * 1000 | date:'MMM'}}</div>
+                    <div class="day">{{session.starts * 1000 | date:'dd'}}</div>
+                    <div class="year">{{session.starts * 1000 | date:'yyyy'}}</div>
+                </div>
+                <h2 class="session_list_title">{{session.title}}</h2>
+                <div class="session_list_speaker">
+                    <img ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png" alt="">
+                    <div>{{session.speaker_name}}</div>
+                    <p>{{session.starts * 1000 | date:'HH:mm'}} - {{session.ends * 1000 | date:'HH:mm'}}</p>
+                </div>
                 <i class="icon ion-ios-arrow-right"></i>
+                <div class="clearfix"></div>
             </ion-item>
         </ion-list>
     </ion-content>

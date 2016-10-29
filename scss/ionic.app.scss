@@ -41,3 +41,39 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     height: auto; 
     max-width: 280px;
 }
+
+/* -- Sessions ----------------------------- */
+.session_list_cal {
+    float: left;
+    height: 80px;
+    width: 60px;
+    margin-right:10px;
+    margin-top: 2px;
+    background-color:#666;
+    color:#FFF;
+    text-align: center;
+    padding-top:6px;
+}
+.session_list_cal .month{
+    font-size:16px;
+}
+.session_list_cal .day{
+    font-size:30px;
+    line-height:100%;
+}
+.session_list_cal .year{
+    font-size:14px;
+}
+.session_list_title{
+    line-height: 100%;
+    margin-bottom: 8px !important;
+    height: 34px;
+    overflow: hidden !important;
+}
+.session_list_speaker img {
+    float: left;
+    height: 36px;
+    margin-top: 4px;
+    margin-right: 8px;
+}
+/* ----------------------------- Sessions -- */
