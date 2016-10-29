@@ -87,6 +87,16 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
                     controller: 'sessionController'
                 }
             }
+        })
+        
+        .state('app.questions', {
+            url: '/questions',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/questions.html',
+                    controller: 'questionController'
+                }
+            }
         });
         
     // if none of the above states are matched, use this as the fallback
