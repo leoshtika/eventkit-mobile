@@ -1,5 +1,7 @@
 eventkitApp.controller('questionController', function ($scope, $state, QuestionService) {
     
+    console.log($state.params);
+    
     $scope.questions = QuestionService.data.questions;
     
     // For one question info page

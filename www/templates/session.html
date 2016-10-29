@@ -12,16 +12,17 @@
             <div class="item item-body">
                 <h2>{{session.title}}</h2>
                 <p>{{session.description}}</p>
-                <p>
-                    <a ng-href="#/app/speakers/{{session.speaker_id}}" class="subdued">About speaker</a>
+                <p class="text-right">
+                    <a ng-href="#/app/speakers/{{session.speaker_id}}" class="subdued calm">About speaker</a>
                 </p>
             </div>
         </div>
     </ion-content>
-    <ion-footer-bar class="icon-right stable-bg">
-        <a class="button button-icon icon ion-social-facebook-outline calm"></a>
-        <a class="button button-icon icon ion-social-twitter-outline calm"></a>
-        <a class="button button-icon icon ion-social-github-outline calm"></a>
-        <div class="title"></div>
+    <ion-footer-bar class="stable-bg">
+        <button class="button button-clear button-calm icon ion-ios-help-outline calm"> Ask a question</button>
     </ion-footer-bar>
+    
+<!--    <div class="bar bar-footer bar-stable">
+       <button class="button icon ion-navicon">Ask a question</button>
+    </div>-->
 </ion-view>
