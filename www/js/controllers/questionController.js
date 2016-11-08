@@ -18,6 +18,7 @@ eventkitApp.controller('questionController', function ($scope, $state, QuestionS
                 QuestionService.data.questions = angular.copy(response.data);
                 $scope.questions = QuestionService.data.questions;
                 QuestionService.data.downloadFlag = false;
+                console.log($scope.questions);
             }, function(err) {
                 console.log('Error downloading questions from API: ');
                 console.log(err.message);

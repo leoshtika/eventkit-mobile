@@ -17,7 +17,7 @@
             <ion-item class="item-icon-right item-text-wrap"
                 ng-repeat="question in questions | filter:query" 
                 ng-href="#/app/questions/{{question.id}}">
-                <h2>{{question.title}}</h2>
+                <h2>{{question.user_name}}</h2>
                 <p>{{question.question}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
                 <div class="clearfix"></div>
