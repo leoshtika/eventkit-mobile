@@ -1,4 +1,4 @@
-eventkitApp.controller('sessionController', function ($scope, $state, $ionicModal, SessionService, CONST) {
+eventkitApp.controller('sessionController', function ($scope, $state, $ionicModal, SessionService, QuestionService, CONST) {
     
     $scope.sessions = SessionService.data.sessions;
     
@@ -76,7 +76,17 @@ eventkitApp.controller('sessionController', function ($scope, $state, $ionicModa
 
     // Send the question to the server 
     $scope.askQuestion = function () {
-        console.log('Question was sent');
+        QuestionService.sendNewQuestion($scope.questionData).then(function(response){
+            console.log('Question was sent');
+            console.log(response);
+        }, function(err){
+            // validation error
+            if (err.status === 422){
+                alert(err.data[0].message);
+            } else {
+                alert (err.data.message);
+            }
+        });
     };
     // ---------------------------- Ask a question --
 

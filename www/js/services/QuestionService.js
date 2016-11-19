@@ -1,4 +1,4 @@
-eventkitApp.factory('QuestionService', function ($http, CONST) {
+eventkitApp.factory('QuestionService', function ($http, CONST, LocalStorageService, UserService) {
 
     return {
         
@@ -18,6 +18,23 @@ eventkitApp.factory('QuestionService', function ($http, CONST) {
                 url: CONST.urlAPI + 'questions/session/1',
                 method: "GET"
             });
-        }        
+        },
+        
+        /**
+         * Send a new question to the server
+         * Make sure that when calling this function the user is logged in.
+         * @param {Object} questionData
+         * @returns {promise}
+         */
+        sendNewQuestion: function(questionData) {
+            var token = LocalStorageService.getLSValue(UserService.params, 'accessToken');
+
+            return $http({
+                url: CONST.urlAPI + 'questions',
+                method: "POST",
+                headers: {'Authorization': 'Bearer ' + token},
+                data: questionData
+            });
+        } 
     };
 });
