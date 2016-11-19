@@ -87,7 +87,14 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
                         'Congratulation! Your question was successfully sent.'
             });
             
+            // reset questionData
+            $scope.questionData.question = '';
+            
+            // close modal
             $scope.closeQuestionModal();
+            
+            // reload questions
+            $scope.doRefresh();
             
         }, function(response){
             
