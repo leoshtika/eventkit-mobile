@@ -80,7 +80,7 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
         })
 
         .state('app.session', {
-            url: '/sessions/:id',
+            url: '/sessions/:sid',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/session.html',
@@ -90,7 +90,7 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
         })
         
         .state('app.questions', {
-            url: '/questions',
+            url: '/sessions/:sid/questions',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/questions.html',
@@ -100,7 +100,7 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
         })
         
         .state('app.question', {
-            url: '/questions/:id',
+            url: '/sessions/:sid/questions/:qid',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/question.html',

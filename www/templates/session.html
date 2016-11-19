@@ -19,12 +19,9 @@
         </div>
     </ion-content>
     <ion-footer-bar class="stable-bg">
-        <button class="button button-clear button-calm icon ion-ios-help calm" ng-click="openQuestionModal()"> 
-            Ask a question
-        </button>
+        <a ng-href="#/app/sessions/{{sessionId}}/questions" 
+           class="button button-clear button-calm icon ion-ios-help calm"> 
+            See all questions
+        </a>
     </ion-footer-bar>
-    
-<!--    <div class="bar bar-footer bar-stable">
-       <button class="button icon ion-navicon">Ask a question</button>
-    </div>-->
 </ion-view>

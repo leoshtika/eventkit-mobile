@@ -1,4 +1,7 @@
 <ion-view view-title="Questions">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-plus-outline button-clear button-calm" ng-click="openQuestionModal()"></button>
+    </ion-nav-buttons>
     <div class="bar bar-subheader item-input-inset bar-light">
         <label class="item-input-wrapper">
             <i class="icon ion-search placeholder-icon"></i>
@@ -16,7 +19,7 @@
         <ion-list>
             <ion-item class="item-icon-right item-text-wrap"
                 ng-repeat="question in questions | filter:query" 
-                ng-href="#/app/questions/{{question.id}}">
+                ng-href="#/app/sessions/{{sessionId}}/questions/{{question.id}}">
                 <h2>{{question.user_name}}</h2>
                 <p>{{question.question}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
