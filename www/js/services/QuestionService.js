@@ -11,11 +11,12 @@ eventkitApp.factory('QuestionService', function ($http, CONST, LocalStorageServi
         
         /**
          * Returns a promise for all questions
+         * @param {int} sid
          * @returns {promise}
          */
-        downloadQuestions: function() {
+        downloadQuestions: function(sid) {
             return $http({
-                url: CONST.urlAPI + 'questions/session/1',
+                url: CONST.urlAPI + 'questions/session/' + sid,
                 method: "GET"
             });
         },

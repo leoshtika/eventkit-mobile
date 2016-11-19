@@ -1,7 +1,5 @@
 eventkitApp.controller('questionController', function ($scope, $state, $ionicModal, $ionicPopup, $ionicLoading, QuestionService) {
     
-    console.log($state.params);
-    
     $scope.questions = QuestionService.data.questions;
     
     // For one question info page
@@ -15,11 +13,10 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
     
         // The following flag makes sure that the data from the API is downloaded only once
         if (QuestionService.data.downloadFlag) {
-            QuestionService.downloadQuestions().then(function(response) {
+            QuestionService.downloadQuestions($scope.sessionId).then(function(response) {
                 QuestionService.data.questions = angular.copy(response.data);
                 $scope.questions = QuestionService.data.questions;
                 QuestionService.data.downloadFlag = false;
-                console.log($scope.questions);
             }, function(err) {
                 console.log('Error downloading questions from API: ');
                 console.log(err.message);

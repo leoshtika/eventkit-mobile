@@ -1,9 +1,12 @@
-eventkitApp.controller('sessionController', function ($scope, $state, SessionService, CONST) {
+eventkitApp.controller('sessionController', function ($scope, $state, SessionService, QuestionService, CONST) {
     
     $scope.sessions = SessionService.data.sessions;
     
     // For one session info page
     $scope.sessionId = $state.params.sid;
+    
+    // Reset download question flag, so that it can donwnload the questions when entering in question controller
+    QuestionService.data.downloadFlag = true;
     
     /**
      * Get all sessions from API and copy to the list
