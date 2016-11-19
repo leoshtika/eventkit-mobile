@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Ask a question</h1>
+        <div class="buttons">
+            <button class="button button-calm button-clear" ng-click="closeQuestionModal()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="askQuestion()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Question</span>
+                    <input type="text" ng-model="questionData.question">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-calm" type="submit">Submit</button>
+                </label>
+            </div>
+        </form>
+        {{questionData}}
+    </ion-content>
+</ion-modal-view>

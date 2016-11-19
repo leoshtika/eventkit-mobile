@@ -1,4 +1,4 @@
-eventkitApp.controller('sessionController', function ($scope, $state, SessionService, CONST) {
+eventkitApp.controller('sessionController', function ($scope, $state, $ionicModal, SessionService, CONST) {
     
     $scope.sessions = SessionService.data.sessions;
     
@@ -50,7 +50,35 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
     $scope.resetSearch = function(){
         $scope.query = '';
     };
+    
+    // -- Ask a question ----------------------------
+    // Initialize data for the question modal
+    $scope.questionData = {
+        'session_id': $scope.sessionId
+    };
+    
+    // Create the question modal
+    $ionicModal.fromTemplateUrl('templates/ask-question-modal.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.questionModal = modal;
+    });
+    
+    // Open the question modal
+    $scope.openQuestionModal = function () {
+        $scope.questionModal.show();
+    };
+    
+    // Close question modal
+    $scope.closeQuestionModal = function () {
+        $scope.questionModal.hide();
+    };
 
+    // Send the question to the server 
+    $scope.askQuestion = function () {
+        console.log('Question was sent');
+    };
+    // ---------------------------- Ask a question --
 
     // Load only the first time, because the cache on the view is 'on'
     updateSessionList();

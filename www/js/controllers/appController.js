@@ -36,10 +36,11 @@ eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoa
         }
     });
 
-    // Form data for the login modal
+    // -- Login -----------------------------------
+    // Init form data for the login modal
     $scope.loginData = {};
 
-    // Create the login modal that we will use later
+    // Create the login modal
     $ionicModal.fromTemplateUrl('templates/login.html', {
         scope: $scope
     }).then(function (modal) {
@@ -108,7 +109,7 @@ eventkitApp.controller('appController', function ($scope, $ionicModal, $ionicLoa
             $ionicLoading.hide();
         });
     };
-    
+    // ----------------------------------- Login --
     
     // Logout user and clean up
     $scope.logout = function(){
