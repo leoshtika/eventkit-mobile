@@ -1,4 +1,4 @@
-eventkitApp.controller('sessionController', function ($scope, $state, SessionService, QuestionService, CONST) {
+eventkitApp.controller('sessionController', function ($scope, $state, SessionService, QuestionService, ScheduleService, CONST) {
     
     $scope.sessions = SessionService.data.sessions;
     
@@ -58,7 +58,7 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
      * Add this session to my schedule
      */
     $scope.addToMySchedule = function(){
-        console.log('Added...');
+        ScheduleService.data.sessions.push($scope.sessions[$scope.sessionId - 1]);
     };
     
     // Load only the first time, because the cache on the view is 'on'
