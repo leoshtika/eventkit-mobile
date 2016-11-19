@@ -54,6 +54,13 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
         $scope.query = '';
     };
     
+    /**
+     * Add this session to my schedule
+     */
+    $scope.addToMySchedule = function(){
+        console.log('Added...');
+    };
+    
     // Load only the first time, because the cache on the view is 'on'
     updateSessionList();
 });

@@ -5,6 +5,9 @@
                 <img ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png" alt="">
                 <h2>{{session.speaker_name}}</h2>
                 <p>
+                    <a ng-href="#/app/speakers/{{session.speaker_id}}" class="subdued calm">About speaker</a>
+                </p>
+                <p>
                     {{session.starts * 1000 | date:'MMM dd, yyyy'}} 
                     {{session.starts * 1000 | date:'HH:mm'}} - {{session.ends * 1000 | date:'HH:mm'}}
                 </p> 
@@ -12,15 +15,15 @@
             <div class="item item-body">
                 <h2>{{session.title}}</h2>
                 <p>{{session.description}}</p>
-                <p class="text-right">
-                    <a ng-href="#/app/speakers/{{session.speaker_id}}" class="subdued calm">About speaker</a>
+                <p class="text-center">
+                    <button class="button button-balanced icon ion-ios-paper-outline" ng-click="addToMySchedule()"> Add to my schedule</button>
                 </p>
             </div>
         </div>
     </ion-content>
-    <ion-footer-bar class="stable-bg">
+    <ion-footer-bar class="calm-bg">
         <a ng-href="#/app/sessions/{{sessionId}}/questions" 
-           class="button button-clear button-calm icon ion-ios-help calm"> 
+           class="button button-clear button-light icon ion-ios-help" style="color: #FFF;"> 
             See all questions
         </a>
     </ion-footer-bar>
