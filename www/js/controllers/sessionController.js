@@ -1,4 +1,4 @@
-eventkitApp.controller('sessionController', function ($scope, $state, $ionicModal, SessionService, QuestionService, CONST) {
+eventkitApp.controller('sessionController', function ($scope, $state, $ionicModal, $ionicLoading, $ionicPopup, SessionService, QuestionService, CONST) {
     
     $scope.sessions = SessionService.data.sessions;
     
@@ -76,16 +76,56 @@ eventkitApp.controller('sessionController', function ($scope, $state, $ionicModa
 
     // Send the question to the server 
     $scope.askQuestion = function () {
+        
+        // Show loader
+        $ionicLoading.show({
+            template: 'Loading. Please wait...' +
+                        '<br><br>' +
+                        '<ion-spinner></ion-spinner>',
+            scope: $scope,
+            showBackdrop: true,
+            showDelay: 100
+        });
+        
         QuestionService.sendNewQuestion($scope.questionData).then(function(response){
-            console.log('Question was sent');
-            console.log(response);
-        }, function(err){
-            // validation error
-            if (err.status === 422){
-                alert(err.data[0].message);
+            
+            $ionicPopup.alert({
+                title: 'New questtion',
+                template: '<i class="icon ion-ios-information balanced icon_popup_template"></i>' +
+                        'Congratulation! Your question was successfully sent.'
+            });
+            
+            $scope.closeQuestionModal();
+            
+        }, function(response){
+            
+            // Default error message
+            var errorMessage = 'An error occured, please try again later.';
+            
+            if (response.data !== null) {
+                // authorization error
+                if (typeof response.data.message !== 'undefined') {
+                    errorMessage = response.data.message;
+                }
+                
+                // validation error
+                if (typeof response.data[0] !== 'undefined') {
+                    errorMessage = response.data[0].message;
+                }
             } else {
-                alert (err.data.message);
+                // API is not available
+                errorMessage = 'Could not connect to the server. Please check your network connection and try again.';
             }
+            
+            $ionicPopup.alert({
+                title: 'New question failed!',
+                template: '<i class="icon ion-ios-information assertive icon_popup_template"></i>' +
+                        errorMessage
+            });
+            
+        }).finally(function(){
+            // hide loader
+            $ionicLoading.hide();
         });
     };
     // ---------------------------- Ask a question --
