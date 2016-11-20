@@ -1,6 +1,6 @@
 <ion-view view-title="Info">
     <ion-content>
-        <div ng-repeat="speaker in speakers | filter:{id:speakerId}" class="padding">
+        <div ng-repeat="speaker in speakers | filter:{id:speakerId}:true" class="padding">
             <div class="text-center">
                 <img class="img_speaker" alt="" ng-src="{{getImage(speaker)}}" err-src="img/avatar.png">
                 <h2>{{speaker.full_name}}</h2>

@@ -5,7 +5,7 @@
                 Session title and Speaker name
             </div>
         </div>
-        <div class="list card" ng-repeat="question in questions | filter:{id:questionId}">
+        <div class="list card" ng-repeat="question in questions | filter:{id:questionId}:true">
             <div class="item item-icon-left" style="background-color: #F8F8F8;">
                 <i class="icon ion-ios-person-outline"></i>
                 <h2>{{question.user_name}}</h2>

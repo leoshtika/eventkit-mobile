@@ -1,6 +1,6 @@
 <ion-view view-title="Session">
     <ion-content>
-        <div class="list card" ng-repeat="session in sessions | filter:{id:sessionId}">
+        <div class="list card" ng-repeat="session in sessions | filter:{id:sessionId}:true">
             <div class="item item-avatar" style="background-color: #F8F8F8;">
                 <img ng-src="{{getImage(session.speaker_id)}}" err-src="img/avatar.png" alt="">
                 <h2>{{session.speaker_name}}</h2>
