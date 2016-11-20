@@ -117,7 +117,7 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
             if (response.data !== null) {
                 // authorization error
                 if (typeof response.data.message !== 'undefined') {
-                    errorMessage = response.data.message;
+                    errorMessage = response.data.message + '<br>' + 'Make sure that you are logged in';
                 }
                 
                 // validation error
