@@ -1,6 +1,8 @@
 <ion-view view-title="Questions">
     <ion-nav-buttons side="right">
-        <button class="button button-icon icon ion-ios-plus-outline button-clear button-calm" ng-click="openQuestionModal()"></button>
+        <button class="button button-icon icon ion-ios-plus-outline button-clear button-calm" 
+                ng-click="openQuestionModal()"
+                ng-if="isUserLoggedIn()"></button>
     </ion-nav-buttons>
     <div class="bar bar-subheader item-input-inset bar-light">
         <label class="item-input-wrapper">

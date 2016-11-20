@@ -1,4 +1,4 @@
-eventkitApp.controller('questionController', function ($scope, $state, $ionicModal, $ionicPopup, $ionicLoading, QuestionService, SessionService) {
+eventkitApp.controller('questionController', function ($scope, $state, $ionicModal, $ionicPopup, $ionicLoading, QuestionService, SessionService, UserService) {
     
     $scope.questions = QuestionService.data.questions;
     
@@ -57,6 +57,11 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
     };
 
     // -- Ask a question ----------------------------
+    // Check if user is logged in, to enable 'Add new question' button
+    $scope.isUserLoggedIn = function(){
+        return UserService.checkIfUserIsLoggedIn();
+    };
+    
     // Initialize data for the question modal
     $scope.questionData = {
         'session_id': $scope.sessionId
