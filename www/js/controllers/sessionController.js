@@ -58,7 +58,12 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
      * Add this session to my schedule
      */
     $scope.addToMySchedule = function(){
-        ScheduleService.data.sessions.push($scope.sessions[$scope.sessionId - 1]);
+        angular.forEach($scope.sessions, function(value, key){
+            if (value.id === $scope.sessionId){
+                ScheduleService.data.sessions.push(value);
+            }
+        });
+        
     };
     
     // Load only the first time, because the cache on the view is 'on'
