@@ -8,9 +8,8 @@
     <ion-content>
         <form ng-submit="askQuestion()">
             <div class="list">
-                <label class="item item-input">
-                    <span class="input-label">Question</span>
-                    <input type="text" ng-model="questionData.question">
+                <label class="item item-input item-stacked-label">
+                    <textarea placeholder="write your question..." rows="8" cols="10" ng-model="questionData.question"></textarea>
                 </label>
                 <label class="item">
                     <button class="button button-block button-calm" type="submit">Send</button>
