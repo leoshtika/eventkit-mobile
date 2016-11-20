@@ -19,7 +19,9 @@
             on-refresh="doRefresh()">
         </ion-refresher>
         <div class="card">
-            <div class="item item-icon-left item-text-wrap" ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
+            <div class="item item-icon-left item-text-wrap item-stable" 
+                 ng-click="openLoginModal()" 
+                 ng-hide="userParams.isLoggedIn">
                 <i class="icon ion-ios-redo-outline calm"></i>
                 <div class="calm">Login now to ask a question about the following session</div>
             </div>
