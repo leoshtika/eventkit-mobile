@@ -2,7 +2,7 @@
     <ion-nav-buttons side="right">
         <button class="button button-icon icon ion-ios-plus-outline button-clear button-calm" 
                 ng-click="openQuestionModal()"
-                ng-if="isUserLoggedIn()"></button>
+                ng-if="userParams.isLoggedIn"></button>
     </ion-nav-buttons>
     <div class="bar bar-subheader item-input-inset bar-light">
         <label class="item-input-wrapper">
@@ -19,13 +19,13 @@
             on-refresh="doRefresh()">
         </ion-refresher>
         <div class="card">
+            <div class="item item-icon-left item-text-wrap" ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
+                <i class="icon ion-ios-redo-outline calm"></i>
+                <div class="calm">Login now to ask a question about the following session</div>
+            </div>
             <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-ios-albums-outline calm"></i>
                 {{sessionTitle()}}
-            </div>
-            <div class="item item-icon-left item-text-wrap" ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
-                <i class="icon ion-ios-redo-outline calm"></i>
-                <div class="calm">Login now to ask a question</div>
             </div>
         </div>
         <ion-list>
