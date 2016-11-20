@@ -1,4 +1,4 @@
-eventkitApp.controller('questionController', function ($scope, $state, $ionicModal, $ionicPopup, $ionicLoading, QuestionService) {
+eventkitApp.controller('questionController', function ($scope, $state, $ionicModal, $ionicPopup, $ionicLoading, QuestionService, SessionService) {
     
     $scope.questions = QuestionService.data.questions;
     
@@ -26,6 +26,20 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
+    };
+    
+    var getSessionTitle = function(){
+        var sessionDetails = null;
+        angular.forEach(SessionService.data.sessions, function(session){
+            if (session.id === $scope.sessionId) {
+                sessionDetails = session;
+            }
+        });
+        return sessionDetails.title;
+    };
+    
+    $scope.sessionTitle = function(){
+        return getSessionTitle();
     };
     
     /**

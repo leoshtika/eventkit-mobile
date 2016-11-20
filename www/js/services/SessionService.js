@@ -18,6 +18,7 @@ eventkitApp.factory('SessionService', function ($http, CONST) {
                 url: CONST.urlAPI + 'sessions',
                 method: "GET"
             });
-        }        
+        }
+        
     };
 });
