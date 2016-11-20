@@ -2,8 +2,7 @@ eventkitApp.controller('questionController', function ($scope, $state, $ionicMod
     
     $scope.questions = QuestionService.data.questions;
     
-    // For one question info page
-    $scope.questionId = $state.params.qid;
+    // Get sessionId from URL params
     $scope.sessionId = $state.params.sid;
     
     /**

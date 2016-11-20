@@ -99,16 +99,6 @@ eventkitApp.run(function ($ionicPlatform, UserService) {
             }
         })
         
-        .state('app.question', {
-            url: '/sessions/:sid/questions/:qid',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/question.html',
-                    controller: 'questionController'
-                }
-            }
-        })
-        
         .state('app.schedule', {
             url: '/schedule',
             views: {

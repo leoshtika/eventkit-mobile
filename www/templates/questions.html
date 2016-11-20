@@ -23,13 +23,11 @@
             </div>
         </div>
         <ion-list>
-            <ion-item class="item-icon-right item-text-wrap"
-                ng-repeat="question in questions | filter:query" 
-                ng-href="#/app/sessions/{{sessionId}}/questions/{{question.id}}">
+            <ion-item class="item-text-wrap"
+                ng-repeat="question in questions | filter:query">
                 <h2>{{question.user_name}}</h2>
+                <p>{{question.created_at * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
                 <p>{{question.question}}</p>
-                <i class="icon ion-ios-arrow-right"></i>
-                <div class="clearfix"></div>
             </ion-item>
         </ion-list>
     </ion-content>
