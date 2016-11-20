@@ -23,8 +23,9 @@
             </div>
         </div>
         <ion-list>
-            <ion-item class="item-text-wrap"
-                ng-repeat="question in questions | filter:query">
+            <ion-item class="item-text-wrap item-icon-left"
+                ng-repeat="question in questions | filter:query | orderBy: '-created_at'">
+                <i class="icon ion-ios-help-outline" ng-class="{ 'balanced': question.status == 20, 'assertive': question.status == 10 }"></i>
                 <h2>{{question.user_name}}</h2>
                 <p>{{question.created_at * 1000 | date:'MMM dd, yyyy HH:mm'}}</p>
                 <p>{{question.question}}</p>
