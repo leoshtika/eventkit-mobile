@@ -16,6 +16,11 @@
             pulling-text="Pull to refresh..."
             on-refresh="doRefresh()">
         </ion-refresher>
+        <div class="card">
+            <div class="item item-text-wrap">
+                Session title and Speaker name
+            </div>
+        </div>
         <ion-list>
             <ion-item class="item-icon-right item-text-wrap"
                 ng-repeat="question in questions | filter:query" 
