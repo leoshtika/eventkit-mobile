@@ -23,6 +23,10 @@
                 <i class="icon ion-ios-albums-outline calm"></i>
                 {{sessionTitle()}}
             </div>
+            <div class="item item-icon-left item-text-wrap" ng-click="openLoginModal()" ng-hide="userParams.isLoggedIn">
+                <i class="icon ion-ios-redo-outline calm"></i>
+                <div class="calm">Login now to ask a question</div>
+            </div>
         </div>
         <ion-list>
             <ion-item class="item-text-wrap item-icon-left"
