@@ -79,4 +79,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .schedule_list_cal {
     background-color: $balanced;
 }
+.session_is_scheduled {
+    position: absolute; 
+    top:6px; 
+    left:6px; 
+    font-size: 22px;
+}
 /* ----------------------------- Sessions -- */

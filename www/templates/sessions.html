@@ -17,6 +17,7 @@
             <ion-item class="item-icon-right item-text-wrap"
                 ng-repeat="session in sessions | filter:query" 
                 ng-href="#/app/sessions/{{session.id}}">
+                <span class="ion-ios-checkmark balanced session_is_scheduled" ng-if="isInMySchedule(session.id)"></span>
                 <div class="session_list_cal">
                     <div class="month">{{session.starts * 1000 | date:'MMM'}}</div>
                     <div class="day">{{session.starts * 1000 | date:'dd'}}</div>

@@ -58,10 +58,10 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
      * Check if this session is in my schedule
      * @returns {Boolean}
      */
-    $scope.isInMySchedule = function(){
+    $scope.isInMySchedule = function(sessionId){
         var response = false;
         angular.forEach(ScheduleService.data.sessions, function(value, key){
-            if (value.id === $scope.sessionId){
+            if (value.id === sessionId){
                 response = true;
             }
         });
