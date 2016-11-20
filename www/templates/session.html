@@ -16,7 +16,12 @@
                 <h2>{{session.title}}</h2>
                 <p>{{session.description}}</p>
                 <p class="text-center">
-                    <button class="button button-balanced icon ion-ios-paper-outline" ng-click="addToMySchedule()"> Add to my schedule</button>
+                    <button class="button button-balanced icon ion-ios-paper-outline" 
+                            ng-click="addToMySchedule()" 
+                            ng-if="!isInMySchedule()"> Add to my schedule</button>
+                    <button class="button button-assertive icon ion-ios-paper-outline" 
+                            ng-click="removeFromMySchedule()" 
+                            ng-if="isInMySchedule()"> Remove from schedule</button>
                 </p>
             </div>
         </div>

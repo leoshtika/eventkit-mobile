@@ -55,6 +55,20 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
     };
     
     /**
+     * Check if this session is in my schedule
+     * @returns {Boolean}
+     */
+    $scope.isInMySchedule = function(){
+        var response = false;
+        angular.forEach(ScheduleService.data.sessions, function(value, key){
+            if (value.id === $scope.sessionId){
+                response = true;
+            }
+        });
+        return response;
+    };
+    
+    /**
      * Add this session to my schedule
      */
     $scope.addToMySchedule = function(){
@@ -63,7 +77,17 @@ eventkitApp.controller('sessionController', function ($scope, $state, SessionSer
                 ScheduleService.data.sessions.push(value);
             }
         });
-        
+    };
+    
+    /**
+     * Remove this session from my schedule
+     */
+    $scope.removeFromMySchedule = function(){
+        angular.forEach(ScheduleService.data.sessions, function(value, key){
+            if (value.id === $scope.sessionId){
+                ScheduleService.data.sessions.splice(key, 1);
+            }
+        });
     };
     
     // Load only the first time, because the cache on the view is 'on'
